@@ -1,0 +1,6 @@
+{
+    "go.toolsEnvVars": {
+        "GOTOOLCHAIN": "auto",
+        "GOENV": "/Users/netmanagement/Library/Application Support/go/env"
+    }
+}
