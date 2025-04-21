@@ -52,6 +52,62 @@ Okta pour l’authentification centralisée
 📘 Documentation & Versioning
 
 🌈 Bonus
+# Nom du projet
+
+Description du projet ici...
+
+---
+
+### 🔍 Voir les fichiers ignorés par `.gitignore`
+
+Lorsque Git ignore certains fichiers (comme `node_modules`, `.env`, ou `build/`), ils ne sont pas visibles dans le dépôt GitHub. Mais ils peuvent exister localement.
+
+#### 📁 Afficher les fichiers ignorés localement
+
+Vous pouvez exécuter la commande suivante pour voir tous les fichiers qui sont **ignorés mais présents localement** :
+
+```bash
+git ls-files --others -i --exclude-standard
+```
+
+---
+
+### 📄 Ajouter la liste de ces fichiers dans ce README
+
+Un script est disponible pour générer et ajouter automatiquement la liste des fichiers ignorés dans ce `README.md`.
+
+#### 🛠 Méthode 1 : avec npm (si vous utilisez Node.js)
+
+```bash
+npm run update:readme:ignored
+```
+
+#### 🛠 Méthode 2 : avec Make
+
+```bash
+make update-readme-ignored
+```
+
+Ce script ajoutera automatiquement une section comme celle-ci :
+
+```txt
+📁 Fichiers ignorés disponibles localement
+
+node_modules/
+.env
+build/
+.vscode/
+```
+
+---
+
+💡 **Astuce :** Pour rendre ces fichiers visibles dans Git, vous devez **les retirer du `.gitignore`** ou **forcer leur ajout** avec :
+
+```bash
+git add -f chemin/vers/le/fichier
+```
+
+⚠️ Attention à ne pas forcer l’ajout de fichiers sensibles comme `.env` ou des clés privées.
 
 🛠️ Structure du projet
 
