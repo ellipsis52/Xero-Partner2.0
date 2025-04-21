@@ -1,3 +1,4 @@
+
 🚀 Xero-Partner2.0
 
 This project contains the Xero-Partner2.0 platform — a powerful solution that integrates various APIs for payments and financial flow management. This repository includes both backend and frontend code, with API credentials managed in a .env file that must be kept private.
@@ -129,7 +130,4 @@ from dotenv import load_dotenv
 load_dotenv()
 xero_client_id = os.getenv("XERO_CLIENT_ID")
 Maintained by: ellipsis52 ✨
-
-Si tu veux que je l’insère automatiquement dans ton dépôt README.md, je peux le faire directement dans ton fichier canvas ou te proposer une commande. Tu veux l’ajouter là-bas aussi ?
-
 
