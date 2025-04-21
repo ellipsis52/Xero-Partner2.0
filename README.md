@@ -1,23 +1,17 @@
-# 🚀 Xero-Partner2.0
+🚀 Xero-Partner2.0
 
-Ce projet contient la plateforme **Xero-Partner2.0**, une solution puissante qui intègre diverses APIs pour le paiement et la gestion de flux financiers. Ce dépôt contient le code backend et frontend, avec une gestion des identifiants API dans un fichier `.env` à maintenir **secret**.
+This project contains the Xero-Partner2.0 platform — a powerful solution that integrates various APIs for payments and financial flow management. This repository includes both backend and frontend code, with API credentials managed in a .env file that must be kept private.
 
----
+✅ Finalization Checklist – Xero-Partner2.0
 
-## ✅ Checklist de Finalisation – Xero-Partner2.0
+📘 README – Project Overview
+Xero-Partner2.0 is a comprehensive API integration project that connects multiple financial services into a unified backend, ready to be linked to a web interface.
 
-### 📘 README – Présentation du Projet
-
-**Xero-Partner2.0** est un projet complet d'intégration API permettant de connecter plusieurs services financiers dans un backend unifié, prêt à être relié à un site web.
-
-### Ce dépôt contient :
-- Un backend Node.js avec intégration des API suivantes : **Xero**, **SaferPay**, **OKX**, **Solaris**, **GPT-4**, et **OKTA**.
-- Un frontend **React** avec un tableau de bord, des formulaires de paiement et de gestion de sessions.
-- Un fichier `.env` (non versionné) où vous devez ajouter vos identifiants API.
-
-### 🔑 Variables d’environnement requises (exemple dans `.env.example`)
-
-```env
+This repository includes:
+A Node.js backend with integrations for: Xero, SaferPay, OKX, Solaris, GPT-4, and OKTA.
+A React frontend with a dashboard, payment forms, and session management.
+A .env file (not versioned) where you must add your API credentials.
+🔑 Required Environment Variables (see example in .env.example)
 ### XERO ###
 XERO_CLIENT_ID=
 XERO_CLIENT_SECRET=
@@ -47,151 +41,95 @@ OKTA_CLIENT_ID=
 OKTA_CLIENT_SECRET=
 OKTA_ISSUER=
 OKTA_REDIRECT_URI=
-```
+⚙️ Quick Setup
 
----
-
-## ⚙️ Installation rapide
-
-```bash
 git clone https://github.com/ellipsis52/Xero-Partner2.0.git
 cd Xero-Partner2.0
 npm install
 cp .env.example .env
-# Puis remplir les clés API dans .env
+# Then fill in your API keys in .env
 npm run dev
-```
+🧩 Main Integrations
 
----
+Xero for accounting
+SaferPay for secure payments
+OKX for crypto interactions
+Solaris for banking services
+GPT-4 for contextual intelligence
+Okta for centralized authentication
+📂 Project Structure
 
-## 🧩 Intégrations principales
-- **Xero** pour la comptabilité
-- **SaferPay** pour les paiements sécurisés
-- **OKX** pour l'interaction crypto
-- **Solaris** pour les services bancaires
-- **GPT-4** pour l'intelligence contextuelle
-- **Okta** pour l'authentification centralisée
-
----
-
-## 📂 Structure du projet
-
-```
 .
-├── .gitignore                # Fichiers/répertoires à ignorer par Git
-├── .env                      # Identifiants API sensibles (non versionné)
-├── backend/                  # Code backend Node.js
-├── netmanagement-frontend/   # Code frontend React
-├── .vscode/                  # Configuration Visual Studio Code (facultatif)
-├── README.md                 # Ce fichier de documentation
-└── package.json              # Dépendances et scripts npm
-```
+├── .gitignore                # Files/directories ignored by Git
+├── .env                      # Sensitive API credentials (not versioned)
+├── backend/                  # Node.js backend code
+├── netmanagement-frontend/   # React frontend code
+├── .vscode/                  # VSCode configuration (optional)
+├── README.md                 # This documentation file
+└── package.json              # NPM dependencies and scripts
+🚀 Usage
 
----
-
-## 🚀 Utilisation
-
-### Lancer le frontend (React)
-```bash
+Start the frontend (React)
 npm run dev
-```
-
-### Lancer le backend (Python)
-```bash
+Start the backend (Python)
 cd backend
 python app.py
-```
+Frontend: http://localhost:3000
+Backend: http://localhost:5000
 
-Accès frontend : [http://localhost:3000](http://localhost:3000)  
-Accès backend : [http://localhost:5000](http://localhost:5000)
+📊 Testing
 
----
-
-## 📊 Tests
-
-### Backend
-```bash
+Backend
 pytest
-```
-
-### Frontend
-```bash
+Frontend
 npm test
-```
+✨ Contributing
 
----
+Fork this repo
+Create a branch: git checkout -b feature/your-feature
+Make your changes + commits
+Push your changes: git push origin feature/your-feature
+Open a pull request
+🌐 License
 
-## ✨ Contribuer
+This project is under the MIT license. See the LICENSE file for details.
 
-1. Fork ce dépôt
-2. Crée une branche : `git checkout -b feature/ta-feature`
-3. Fais tes modifications + commits
-4. Pousse les changements : `git push origin feature/ta-feature`
-5. Ouvre une pull request
+🔍 View Files Ignored by .gitignore
 
----
-
-## 🌐 Licence
-
-Ce projet est sous la licence **MIT**. Voir le fichier [LICENSE](./LICENSE).
-
----
-
-## 🔍 Voir les fichiers ignorés par `.gitignore`
-
-### Liste des fichiers ignorés localement
-```bash
+List locally ignored files
 git ls-files --others -i --exclude-standard
-```
+Script to automatically add them to the README
+Using npm
 
-### Script pour les ajouter automatiquement au README
-
-#### Avec npm
-```bash
 npm run update:readme:ignored
-```
+Using Make
 
-#### Avec Make
-```bash
 make update-readme-ignored
-```
-
-### Exemple de sortie automatique
-```txt
-📁 Fichiers ignorés disponibles localement
+Example of auto-generated output
+📁 Locally ignored files available
 node_modules/
 .env
 build/
 .vscode/
-```
+⚠️ Warning: Do not force add sensitive files like .env or private keys!
+🔐 Secret Key File .env
 
-> ⚠️ **Attention** : Ne pas forcer l'ajout de `.env` ou de fichiers sensibles !
+This file contains sensitive access keys used by the backend. It must never be committed to GitHub.
 
----
+Usage in backend code
+Node.js: via dotenv
+Python: via python-dotenv
+Example in Node.js
 
-## 🔐 Dossier des Clés Secrètes `.env`
-
-Ce fichier contient les **clés d'accès sensibles** utilisées par le backend. Il **ne doit jamais être versionné** dans GitHub.
-
-### Utilisation dans le code backend
-
-- **Node.js** : `dotenv`
-- **Python** : `python-dotenv`
-
-#### Exemple en Node.js
-```js
 require('dotenv').config();
 const xeroClientId = process.env.XERO_CLIENT_ID;
-```
+Example in Python
 
-#### Exemple en Python
-```python
 from dotenv import load_dotenv
 load_dotenv()
 xero_client_id = os.getenv("XERO_CLIENT_ID")
-```
+Maintained by: ellipsis52 ✨
 
----
+Si tu veux que je l’insère automatiquement dans ton dépôt README.md, je peux le faire directement dans ton fichier canvas ou te proposer une commande. Tu veux l’ajouter là-bas aussi ?
 
-**Maintenu par :** [ellipsis52](https://github.com/ellipsis52) ✨
 
