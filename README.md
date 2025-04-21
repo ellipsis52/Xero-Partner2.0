@@ -108,6 +108,88 @@ git add -f chemin/vers/le/fichier
 ```
 
 ⚠️ Attention à ne pas forcer l’ajout de fichiers sensibles comme `.env` ou des clés privées.
+# Xero-Partner2.0
+
+Une intégration entre Xero et un système de gestion de paiement utilisant `netmanagement.online`.
+
+## Description
+Ce projet est une API de gestion qui intègre Xero pour la facturation et la gestion des paiements. Il permet également de suivre l'état des transactions via un tableau de bord intégré.
+
+## Table des matières
+1. [Description](#description)
+2. [Prérequis](#prérequis)
+3. [Installation](#installation)
+4. [Configuration](#configuration)
+5. [Utilisation](#utilisation)
+6. [Tests](#tests)
+7. [Contribuer](#contribuer)
+8. [Licence](#licence)
+
+## Prérequis
+Avant de commencer, assure-toi que tu as les éléments suivants installés sur ton système :
+- Node.js (>=v14)
+- Python (>=v3.8)
+- Xero Partner 2.0 API
+- Okta pour l'authentification
+- Visual Studio ou tout autre éditeur compatible pour le développement
+
+## Installation
+Voici les étapes pour installer et configurer le projet sur ton ordinateur :
+
+### 1. Cloner le dépôt
+Clone ce projet en exécutant la commande suivante dans ton terminal :
+```bash
+git clone https://github.com/ellipsis52/Xero-Partner2.0.git
+Frontend
+
+Installe les dépendances frontend avec npm :
+
+cd Xero-Partner2.0
+npm install
+
+Backend
+
+Installe les dépendances backend avec pip :
+
+cd backend
+pip install -r requirements.txt
+
+Démarrer le serveur de développement
+Pour démarrer le serveur frontend en mode développement :
+
+npm run dev
+Pour démarrer le backend :
+
+python app.py
+Accède à l'application via http://localhost:3000 pour le frontend et http://localhost:5000 pour le backend.
+
+Tests
+
+Backend
+Exécute les tests backend avec pytest :
+
+pytest
+Frontend
+Exécute les tests frontend avec npm :
+
+npm test
+
+Contribuer
+
+Nous accueillons les contributions ! Si tu souhaites contribuer, voici les étapes à suivre :
+
+Fork ce dépôt.
+Crée une nouvelle branche (git checkout -b feature/ton-nouvelle-feature).
+Effectue des modifications et fais des commits.
+Pousse tes changements (git push origin feature/ton-nouvelle-feature).
+Crée une pull request pour la révision.
+Licence
+
+Ce projet est sous la licence MIT. Consulte le fichier LICENSE pour plus de détails.
+
+
+Ce fichier `README.md` est conçu pour être complet et informatif. Il comprend des instructions claires pour installer, configurer et utiliser ton projet, ainsi que pour y contribuer. N'oublie pas d'ajouter ton fichier `LICENSE` à la racine du projet si ce n'est pas déjà fait.
+
 
 🛠️ Structure du projet
 
