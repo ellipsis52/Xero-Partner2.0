@@ -1,6 +1,21 @@
 # 🚀 Xero-Partner2.0
 
 This project contains the **Xero-Partner2.0** platform — a powerful solution that integrates various APIs for payments and financial flow management. This repository includes both backend and frontend code, with API credentials managed in a `.env` file that must be kept **private**.
+# Xero Frontend Integration
+
+## Prérequis
+- Node.js >= 14.x
+- Xero API credentials
+
+## Installation
+1. Clonez le dépôt
+2. Exécutez `npm install` pour installer les dépendances
+3. Configurez votre environnement avec les clés Xero
+4. Démarrez l'application avec `npm start`
+
+## Utilisation
+1. Connectez-vous à Xero en cliquant sur "Se connecter avec Xero"
+2. Une fois connecté, vous pouvez voir les factures dans la section "Factures"
 
 ---
 
