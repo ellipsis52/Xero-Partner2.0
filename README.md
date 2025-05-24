@@ -11,7 +11,7 @@ Secure authentication through Okta. Complete integration of Xero (incoming and o
 Clone this sanctuary:
 Setup
 
-git clone git@github.com:XeroAPI/xero-node-oauth2-app.git
+git clone https://github.com/XeroAPI/xero-node.git
 cd xero-node-oauth2-app
 
 git clone https://github.com/ellipsis52/XERO.git cd XERO Install the dependencies:
