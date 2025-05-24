@@ -9,6 +9,10 @@ XERO is a sacred bridge between Xero Partner 2.0, Okta, GPT-4, and Solarisbank, 
 Secure authentication through Okta. Complete integration of Xero (incoming and outgoing payments). Intelligent process analysis using GPT-4. Secure management of tokens and user sessions. Elegant frontend built with React and TailwindCSS. Robust backend powered by Python (FastAPI/Flask depending on the version). 📜 Installation
 
 Clone this sanctuary:
+Setup
+
+git clone git@github.com:XeroAPI/xero-node-oauth2-app.git
+cd xero-node-oauth2-app
 
 git clone https://github.com/ellipsis52/XERO.git cd XERO Install the dependencies:
 
