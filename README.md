@@ -2307,6 +2307,124 @@ api_response = api_instance.get_invoices(
 ```
 
 ---
+# Integrating React into a Static HTML Template (Hyperspace)
+
+This guide will help you integrate a React application into an existing static HTML template, like the Hyperspace template, without replacing the whole structure.
+
+## 🛠️ Step-by-Step Instructions
+
+### 1. 📁 Organize Your Project Structure
+
+Place your files like this:
+
+```
+hyperspace/
+├── index.html        ← Your static HTML file
+├── assets/           ← Existing assets like CSS/images
+├── react-app/
+│   ├── src/
+│   │   └── App.jsx    ← Your React component
+│   ├── public/
+│   │   └── index.html ← A minimal HTML file (used by Vite)
+│   ├── vite.config.js
+│   └── package.json
+```
+
+### 2. ⚙️ Initialize the React App
+
+From the `hyperspace/` directory:
+
+```bash
+npm create vite@latest react-app --template react
+cd react-app
+npm install
+```
+
+### 3. ✏️ Create a Simple React Component
+
+`react-app/src/App.jsx`:
+
+```jsx
+import React from 'react';
+
+function App() {
+  return (
+    <div style={{ backgroundColor: '#f0f0f0', padding: '2rem', borderRadius: '8px' }}>
+      <h1 style={{ color: '#222' }}>This is a React-embedded area</h1>
+      <p>Dynamically editable 🎉</p>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### 4. 🛠️ Mount React into a Specific HTML Element
+
+`react-app/src/main.jsx`:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App';
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('react-root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+```
+
+### 5. ⚙️ (Optional) Customize `vite.config.js`
+
+You can leave the default settings if you're only bundling.
+
+### 6. ⚡ Build the React App
+
+In `react-app/`, run:
+
+```bash
+npm run build
+```
+
+This will generate a `dist/` folder with a bundled JavaScript file.
+
+### 7. ✅ Add React to Your Static HTML
+
+In your `index.html` (inside the main `hyperspace/` folder), add:
+
+```html
+<!-- Where you want to mount React -->
+<div id="react-root"></div>
+
+<!-- At the end of the <body> tag -->
+<script type="module" src="react-app/dist/assets/index-xxxxx.js"></script>
+```
+
+Replace `index-xxxxx.js` with the actual filename generated in the build.
+
+### 8. (Optional) Move Files for Simplicity
+
+You can move the `dist/` folder or its contents into `assets/` to shorten the path.
+
+## ✅ Bonus: Commit to GitHub
+
+```bash
+git init
+git add .
+git commit -m "Added React integration to Hyperspace"
+git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
+git push -u origin master
+```
+
+Replace `YOUR-USERNAME` and `YOUR-REPO` with your actual GitHub account and repository.
+
+---
+
+Need help preparing the commit with your actual files? I can help generate the exact command or prepare a full starter template.
+
+ask gpt4
 
 ## Participating in Xero’s developer community
 
