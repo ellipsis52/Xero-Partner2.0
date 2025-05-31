@@ -16,6 +16,9 @@ cd xero-node-oauth2-app
 
 git clone https://github.com/ellipsis52/XERO.git cd XERO Install the dependencies:
 
+git clone https://github.com/ellipsis52/Xero-Partner-2.0-Works-place.git
+
+
 For the Python backend
 
 pip install -r requirements.txt
