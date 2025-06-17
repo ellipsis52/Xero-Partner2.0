@@ -18,6 +18,7 @@ git clone https://github.com/ellipsis52/XERO.git cd XERO Install the dependencie
 
 git clone https://github.com/ellipsis52/Xero-Partner-2.0-Works-place.git
 
+git clone https://github.com/ellipsis52/Xero-Partner2.0/tree/master.git cd Xero-Partner2.0/tree/master
 
 For the Python backend
 
