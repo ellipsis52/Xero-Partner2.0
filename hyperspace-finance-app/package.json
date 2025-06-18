@@ -1,0 +1,12 @@
+{
+  "name": "hyperspace-finance-app",
+  "version": "1.0.0",
+  "description": "Smart web app integrating Xero, OKX, GPT-4, Saferpay, SolarisBank and Stripe",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
