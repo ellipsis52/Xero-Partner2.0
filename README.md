@@ -54,6 +54,7 @@ This HTML-based web app allows you to:
 * Send **crypto payments via OKX**
 * Ask questions to **GPT-4**
 * View a **history of payments**
+* Explore an elegant UI powered by **Hyperspace HTML5UP** design
 
 ---
 
@@ -61,7 +62,8 @@ This HTML-based web app allows you to:
 
 ```
 vanilla-app/
-├── index.html         # Main UI
+├── index.html         # Main UI (Hyperspace + Vanilla merged)
+├── assets/            # Hyperspace CSS and JS
 ├── server.js          # Express backend (optional)
 └── README.md          # This file
 ```
@@ -106,25 +108,20 @@ http://localhost:4000
 
 ## 📂 Full HTML Content (index.html)
 
-The entire HTML file powering this web app is shown below:
-
 ```html
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vanilla Web App</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>Vanilla + Hyperspace Web App</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
   <style>
-    body {
-      font-family: sans-serif;
-      background-color: #f9fafb;
-      margin: 0;
-      padding: 2rem;
-    }
     .grid {
       display: grid;
       gap: 1.5rem;
+      padding: 2rem;
     }
     @media (min-width: 768px) {
       .grid {
@@ -137,23 +134,17 @@ The entire HTML file powering this web app is shown below:
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
       padding: 1.5rem;
     }
-    h2, h3 {
-      font-size: 1.25rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-    }
     label {
-      font-size: 0.875rem;
-      font-weight: 600;
       display: block;
       margin-top: 1rem;
+      font-weight: 600;
     }
     input, select {
       width: 100%;
       padding: 0.5rem;
-      margin-top: 0.25rem;
       border: 1px solid #ccc;
       border-radius: 0.375rem;
+      margin-top: 0.25rem;
     }
     button {
       margin-top: 1rem;
@@ -163,20 +154,9 @@ The entire HTML file powering this web app is shown below:
       border: none;
       border-radius: 0.375rem;
       cursor: pointer;
-      transition: background 0.2s ease-in-out;
     }
     button:hover {
       background-color: #333;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 0.5rem;
-      text-align: left;
     }
     .response {
       background: #f0f0f0;
@@ -184,30 +164,129 @@ The entire HTML file powering this web app is shown below:
       padding: 1rem;
       margin-top: 1rem;
     }
-    .error {
-      color: red;
+    .error, .loading {
+      display: none;
       font-size: 0.875rem;
-      display: none;
     }
-    .loading {
-      color: #007bff;
-      font-size: 1rem;
-      display: none;
-    }
+    .error { color: red; }
+    .loading { color: #007bff; }
   </style>
 </head>
-<body>
+<body class="is-preload">
 
-  <div class="grid">
-    <!-- Outgoing Payment (Xero) -->
-    <!-- Crypto Payment to OKX -->
-    <!-- GPT-4 Interaction -->
-    <!-- Payment History -->
+  <!-- Sidebar -->
+  <section id="sidebar">
+    <div class="inner">
+      <nav>
+        <ul>
+          <li><a href="#intro">Welcome</a></li>
+          <li><a href="#one">Who we are</a></li>
+          <li><a href="#two">What we do</a></li>
+          <li><a href="#three">Get in touch</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Wrapper -->
+  <div id="wrapper">
+
+    <!-- Vanilla Grid UI -->
+    <section id="intro" class="wrapper style1 fullscreen fade-up">
+      <div class="grid">
+        <!-- Outgoing Payment (Xero) -->
+        <div class="card">
+          <h2>Outgoing Payment (Xero)</h2>
+          <label>Xero Contact ID</label>
+          <input id="xeroContactId" type="text" />
+          <label>IBAN</label>
+          <input id="xeroIban" type="text" />
+          <label>Amount</label>
+          <input id="xeroAmount" type="text" />
+          <label>Description</label>
+          <input id="xeroDescription" type="text" />
+          <button onclick="makeXeroPayment()">Make Xero Payment</button>
+          <p id="xeroError" class="error">Error message</p>
+          <p id="xeroLoading" class="loading">Processing...</p>
+        </div>
+
+        <!-- Crypto Payment -->
+        <div class="card">
+          <h2>Crypto Payment to OKX</h2>
+          <label>Cryptocurrency</label>
+          <select id="cryptoCurrency">
+            <option>Bitcoin (BTC)</option>
+            <option>Ethereum (ETH)</option>
+            <option>Tether (USDT)</option>
+          </select>
+          <label>Amount</label>
+          <input id="cryptoAmount" type="text" />
+          <label>IBAN</label>
+          <input id="cryptoIban" type="text" />
+          <button onclick="sendCryptoPayment()">Send Crypto Payment</button>
+          <p id="cryptoError" class="error">Error message</p>
+          <p id="cryptoLoading" class="loading">Processing...</p>
+        </div>
+
+        <!-- GPT-4 -->
+        <div class="card">
+          <h2>Interact with GPT-4</h2>
+          <label>Ask GPT-4 a question</label>
+          <input id="gptQuestion" type="text" />
+          <button onclick="askGpt()">Ask Question</button>
+          <p id="gptError" class="error">Error message</p>
+          <div id="gptResponse" class="response">
+            <h3>GPT-4 Response:</h3>
+            <p>Answer will appear here.</p>
+          </div>
+          <p id="gptLoading" class="loading">Processing...</p>
+        </div>
+      </div>
+    </section>
+
   </div>
 
+  <!-- Scripts -->
   <script>
-    // JS functions: makeXeroPayment, sendCryptoPayment, askGpt
+    async function makeXeroPayment() {
+      document.getElementById('xeroLoading').style.display = 'block';
+      document.getElementById('xeroError').style.display = 'none';
+      setTimeout(() => {
+        document.getElementById('xeroLoading').style.display = 'none';
+        alert('Xero payment successful!');
+      }, 2000);
+    }
+
+    async function sendCryptoPayment() {
+      document.getElementById('cryptoLoading').style.display = 'block';
+      document.getElementById('cryptoError').style.display = 'none';
+      setTimeout(() => {
+        document.getElementById('cryptoLoading').style.display = 'none';
+        alert('Crypto payment successful!');
+      }, 2000);
+    }
+
+    async function askGpt() {
+      const question = document.getElementById('gptQuestion').value;
+      document.getElementById('gptLoading').style.display = 'block';
+      document.getElementById('gptError').style.display = 'none';
+      document.getElementById('gptResponse').style.display = 'none';
+      setTimeout(() => {
+        document.getElementById('gptLoading').style.display = 'none';
+        document.getElementById('gptResponse').style.display = 'block';
+        document.getElementById('gptResponse').innerHTML = `<h3>GPT-4 Response:</h3><p>Simulated response for: ${question}</p>`;
+      }, 2000);
+    }
   </script>
+
+  <!-- Hyperspace Scripts -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
 
 </body>
 </html>
@@ -225,7 +304,7 @@ The entire HTML file powering this web app is shown below:
 
 ---
 
-## 🧠 Legal Disclaimer – Ipranet
+## 🨠 Legal Disclaimer – Ipranet
 
 > *"Ipranet is an assistant tool designed to help with technical tasks, code preparation, integration setups, and other development-related activities. It cannot execute real-world financial transactions, interact directly with external financial platforms, or perform operations involving money. All actions related to payments, transfers, and sensitive operations require human oversight and authorization."*
 
@@ -233,15 +312,11 @@ The entire HTML file powering this web app is shown below:
 
 ## ✨ Author
 
-🪐 [Netmanagement.online](https://netmanagement.online)
+💐 [Netmanagement.online](https://netmanagement.online)
 
 ---
 
 This project is a compass in the galaxy of financial APIs. Now it's your turn to bring it to life 🌌
-
-## Prérequis
-- Node.js >= 14.x
-- Xero API credentials
 
 ## Installation
 1. Clonez le dépôt
