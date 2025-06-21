@@ -137,6 +137,11 @@ Ensure your backend exposes the specified API endpoints, handling authentication
 Serve the page over HTTPS for secure API communication.
 Full HTML Snippet to Embed
 
+# Vanilla Web App — HTML Source
+
+Below is the complete HTML source code for the Vanilla Web App interface, ready to be embedded in your Hyperspace or HTML5 project.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -232,154 +237,9 @@ Full HTML Snippet to Embed
     <div class="card">
       <h2>Outgoing Payment (Xero)</h2>
       <label for="xeroContactId">Xero Contact ID</label>
-      <input id="xeroContactId" type="text" placeholder="12345678-aaaa-bbbb-cccc-ddddeeeeffff"/>
-      <label for="xeroIban">IBAN</label>
-      <input id="xeroIban" type="text" placeholder="Your IBAN"/>
-      <label for="xeroAmount">Amount</label>
-      <input id="xeroAmount" type="text" placeholder="100.00"/>
-      <label for="xeroDescription">Description</label>
-      <input id="xeroDescription" type="text" placeholder="Supplier payment"/>
-      <button onclick="makeXeroPayment()">Make Xero Payment</button>
-      <p id="xeroError" class="error">Error message</p>
-      <p id="xeroLoading" class="loading">Processing...</p>
-    </div>
+      <input id="xeroCo
 
-    <!-- Crypto Payment to OKX -->
-    <div class="card">
-      <h2>Crypto Payment to OKX</h2>
-      <label for="cryptoCurrency">Cryptocurrency</label>
-      <select id="cryptoCurrency">
-        <option>Bitcoin (BTC)</option>
-        <option>Ethereum (ETH)</option>
-        <option>Tether (USDT)</option>
-      </select>
-      <label for="cryptoAmount">Amount</label>
-      <input id="cryptoAmount" type="text" placeholder="100.00"/>
-      <label for="cryptoIban">IBAN</label>
-      <input id="cryptoIban" type="text" placeholder="Your IBAN"/>
-      <button onclick="sendCryptoPayment()">Send Crypto Payment</button>
-      <p id="cryptoError" class="error">Error message</p>
-      <p id="cryptoLoading" class="loading">Processing...</p>
-    </div>
 
-    <!-- GPT-4 Interaction -->
-    <div class="card">
-      <h2>Interact with GPT-4</h2>
-      <label for="gptQuestion">Ask GPT-4 a question</label>
-      <input id="gptQuestion" type="text" placeholder="Your question here"/>
-      <button onclick="askGpt()">Ask Question</button>
-      <p id="gptError" class="error">Error message</p>
-      <div id="gptResponse" class="response" style="display:none;">
-        <h3>GPT-4 Response:</h3>
-        <p>Answer will appear here.</p>
-      </div>
-      <p id="gptLoading" class="loading">Processing...</p>
-    </div>
-
-    <!-- Payment History -->
-    <div class="card" style="grid-column: span 3;">
-      <h3>Payment History</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Crypto / Xero</th>
-            <th>Amount</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Xero</td>
-            <td>Xero Payment</td>
-            <td>100.00</td>
-            <td>Completed</td>
-          </tr>
-          <tr>
-            <td>OKX</td>
-            <td>ETH</td>
-            <td>250.00</td>
-            <td>Pending</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
-
-  <script>
-    async function makeXeroPayment() {
-      const xeroContactId = document.getElementById('xeroContactId').value;
-      const xeroIban = document.getElementById('xeroIban').value;
-      const xeroAmount = document.getElementById('xeroAmount').value;
-      const xeroDescription = document.getElementById('xeroDescription').value;
-
-      document.getElementById('xeroLoading').style.display = 'block';
-      document.getElementById('xeroError').style.display = 'none';
-
-      try {
-        const response = await axios.post('/xero/payment', {
-          xeroContactId,
-          xeroIban,
-          xeroAmount,
-          xeroDescription
-        });
-
-        document.getElementById('xeroLoading').style.display = 'none';
-        alert('Xero payment successful!');
-      } catch (error) {
-        document.getElementById('xeroLoading').style.display = 'none';
-        document.getElementById('xeroError').style.display = 'block';
-      }
-    }
-
-    async function sendCryptoPayment() {
-      const cryptoCurrency = document.getElementById('cryptoCurrency').value;
-      const cryptoAmount = document.getElementById('cryptoAmount').value;
-      const cryptoIban = document.getElementById('cryptoIban').value;
-
-      document.getElementById('cryptoLoading').style.display = 'block';
-      document.getElementById('cryptoError').style.display = 'none';
-
-      try {
-        const response = await axios.post('/okx/payment', {
-          cryptoCurrency,
-          cryptoAmount,
-          cryptoIban
-        });
-
-        document.getElementById('cryptoLoading').style.display = 'none';
-        alert('Crypto payment successful!');
-      } catch (error) {
-        document.getElementById('cryptoLoading').style.display = 'none';
-        document.getElementById('cryptoError').style.display = 'block';
-      }
-    }
-
-    async function askGpt() {
-      const question = document.getElementById('gptQuestion').value;
-
-      document.getElementById('gptLoading').style.display = 'block';
-      document.getElementById('gptError').style.display = 'none';
-      document.getElementById('gptResponse').style.display = 'none';
-
-      try {
-        const response = await axios.post('/gpt/ask', { question });
-
-        document.getElementById('gptLoading').style.display = 'none';
-        document.getElementById('gptResponse').style.display = 'block';
-        document.getElementById('gptResponse').innerHTML = `
-          <h3>GPT-4 Response:</h3>
-          <p>${response.data.answer}</p>
-        `;
-      } catch (error) {
-        document.getElementById('gptLoading').style.display = 'none';
-        document.getElementById('gptError').style.display = 'block';
-      }
-    }
-  </script>
-</body>
-</html>
 Notes on Integration
 
 Place this HTML in your Hyperspace project’s page or an HTML5 template
