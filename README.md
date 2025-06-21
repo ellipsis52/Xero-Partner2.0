@@ -44,6 +44,200 @@ Xero Partner 2.0 integration Okta authentication GPT-4 process analysis Automati
 
 This project contains the **Xero-Partner2.0** platform — a powerful solution that integrates various APIs for payments and financial flow management. This repository includes both backend and frontend code, with API credentials managed in a `.env` file that must be kept **private**.
 # Xero Frontend Integration
+# 🚀 Vanilla Web App – Payments & Intelligence
+
+Welcome to the lightweight yet powerful financial interface from **Netmanagement.online**.
+
+This HTML-based web app allows you to:
+
+* Execute **Xero outgoing payments**
+* Send **crypto payments via OKX**
+* Ask questions to **GPT-4**
+* View a **history of payments**
+
+---
+
+## 📁 Project Structure
+
+```
+vanilla-app/
+├── index.html         # Main UI
+├── server.js          # Express backend (optional)
+└── README.md          # This file
+```
+
+---
+
+## 🔧 Getting Started
+
+### 1. Run a simple local server
+
+```bash
+python3 -m http.server 3000
+```
+
+Open in your browser:
+
+```
+http://localhost:3000
+```
+
+### 2. Optional: Add a backend with Node.js
+
+Install dependencies:
+
+```bash
+npm install express cors body-parser
+```
+
+Start the server:
+
+```bash
+node server.js
+```
+
+Accessible at:
+
+```
+http://localhost:4000
+```
+
+---
+
+## 📂 Full HTML Content (index.html)
+
+The entire HTML file powering this web app is shown below:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vanilla Web App</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f9fafb;
+      margin: 0;
+      padding: 2rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .card {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+    }
+    h2, h3 {
+      font-size: 1.25rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 0.375rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: background 0.2s ease-in-out;
+    }
+    button:hover {
+      background-color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .response {
+      background: #f0f0f0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+    .error {
+      color: red;
+      font-size: 0.875rem;
+      display: none;
+    }
+    .loading {
+      color: #007bff;
+      font-size: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="grid">
+    <!-- Outgoing Payment (Xero) -->
+    <!-- Crypto Payment to OKX -->
+    <!-- GPT-4 Interaction -->
+    <!-- Payment History -->
+  </div>
+
+  <script>
+    // JS functions: makeXeroPayment, sendCryptoPayment, askGpt
+  </script>
+
+</body>
+</html>
+```
+
+---
+
+## 🔐 API Integration & Security
+
+> ⚠️ This app is currently using simulated responses. To make it **live**, link it to secure backend APIs.
+
+* **/xero/payment** → Connects to Xero
+* **/okx/payment** → Connects to your crypto service
+* **/gpt/ask** → Connects to OpenAI GPT-4 API
+
+---
+
+## 🧠 Legal Disclaimer – Ipranet
+
+> *"Ipranet is an assistant tool designed to help with technical tasks, code preparation, integration setups, and other development-related activities. It cannot execute real-world financial transactions, interact directly with external financial platforms, or perform operations involving money. All actions related to payments, transfers, and sensitive operations require human oversight and authorization."*
+
+---
+
+## ✨ Author
+
+🪐 [Netmanagement.online](https://netmanagement.online)
+
+---
+
+This project is a compass in the galaxy of financial APIs. Now it's your turn to bring it to life 🌌
 
 ## Prérequis
 - Node.js >= 14.x
