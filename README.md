@@ -10,6 +10,7 @@ Secure authentication through Okta. Complete integration of Xero (incoming and o
 
 Clone this sanctuary:
 Setup
+
 git clone https://github.com/ellipsis52/html5up-hyperspace-xero.git
 
 git clone https://github.com/XeroAPI/xero-node.git
